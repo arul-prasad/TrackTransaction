@@ -25,6 +25,8 @@ var smsReader = (function(smsReader) {
   }
  };
     
+ var toDate1 = function(dateValue) { return dateValue; }
+ 
  var toDate = function(dateValue) {
      var date = dateutil.parse(dateValue);
      if(date && date.toString() !== "Invalid Date") {
