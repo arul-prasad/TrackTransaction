@@ -17,13 +17,13 @@ var smsReader = (function(smsReader) {
         type : "DEBIT",
         msgTemplates : ["Dear Customer, You have made a Debit Card purchase of","on", "Info.", "Your Net Available Balance is"],
         attributtes : ["amount", "date","merchant", "netAvailable"],
+        attrTypes : [ "INR" ,"DDMON","alphanumeric","INR"],
         charsToRemove : ["",".","",""]
     };
     
     var drEcsTranSmsSpec = {
         bank : "ICICI",
-        type : "DEBIT",
-        tranType : "ECS",
+        type : "DEBIT-ECS",
         msgTemplates : ["Dear Customer, Your Ac","is debited with", "on", "Info.ECS*","Your Total Avbl. Bal is"],
         attributtes : ["account", "amount","date", "merchant", "totalAvailable"],
         charsToRemove : ["","",".",".","."]
