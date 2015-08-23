@@ -12,6 +12,15 @@ var smsReader = (function(smsReader) {
         charsToRemove : ["","","",".",",","."]
     };
     
+    var drEcsTranSmsSpec = {
+        bank : "ICICI",
+        type : "DEBIT-ECS",
+        msgTemplates : ["Dear Customer, Your Ac","is debited with", "on", "Info.ECS*","Your Total Avbl. Bal is"],
+        attributtes : ["account", "amount","date", "merchant", "totalAvailable"],
+        attrTypes : [ "alphanumeric", "INR", "DDMON","alphanumeric","INR"],
+        charsToRemove : ["","",".",".","."]
+    };
+    
     var drCardTranSmsSpec = {
         bank : "ICICI",
         type : "DEBIT",
@@ -21,17 +30,10 @@ var smsReader = (function(smsReader) {
         charsToRemove : ["",".","",""]
     };
     
-    var drEcsTranSmsSpec = {
-        bank : "ICICI",
-        type : "DEBIT-ECS",
-        msgTemplates : ["Dear Customer, Your Ac","is debited with", "on", "Info.ECS*","Your Total Avbl. Bal is"],
-        attributtes : ["account", "amount","date", "merchant", "totalAvailable"],
-        charsToRemove : ["","",".",".","."]
-    };
       
     smsSpecs.push(crCardTranSmsSpec);
-    smsSpecs.push(drCardTranSmsSpec);
     smsSpecs.push(drEcsTranSmsSpec);
+    smsSpecs.push(drCardTranSmsSpec);
     return smsSpecs;   
   };
     
