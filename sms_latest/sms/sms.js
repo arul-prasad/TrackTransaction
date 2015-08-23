@@ -87,7 +87,7 @@ var smsReader = (function (smsReader) {
       var extractDatas = extractTranDatas(matchedTranSmsSpec,tranSms,matchedTranSmsSpec.foundMsgIndexes);
       return toTranData(matchedTranSmsSpec,tranSms,extractDatas);
     } else {
-      throw "template doesn't match the sms for the given msg: check the available config:" + tranSms;
+      throw "spec doesn't match the sms for the given msg: check the available config sms spec:" + tranSms;
     }
   };                                                    
   
@@ -100,8 +100,6 @@ var smsReader = (function (smsReader) {
         onError(e);
     }
   }; 
-  
-  
   
   return smsReader;
 

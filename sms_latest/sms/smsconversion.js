@@ -1,5 +1,13 @@
 var smsReader = (function(smsReader) {
  
+dateutil._parsers['dd-mm-yy'] = {
+  test: /^(3[01]|[12][0-9]|0?[1-9])-(1[0-2]|0?[1-9])-(?:[0-9]{2})?[0-9]{2}$/,
+  parse: function ( str ) {
+    var bits = str.split('-');
+    return new Date( bits[2], bits[1] -1,bits[0]);
+  }
+};
+    
  var replaceAll = function(find, replace, str) {
   return str.replace(new RegExp(find, 'g'), replace);
  };
@@ -37,6 +45,7 @@ var smsReader = (function(smsReader) {
      }
      
  };
+    
  
  var toDate = function(dateValue) {
      var date = dateutil.parse(dateValue);
@@ -55,7 +64,9 @@ var smsReader = (function(smsReader) {
      
      DATE :  toDate,
      
-     DDMON : toDateWithOutYear,
+     DDMM : toDateWithOutYear,
+     
+     DDMMYY : toDateWithOutYear
  };
     
  smsReader.getConverter = function(attrType) {
