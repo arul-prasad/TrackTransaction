@@ -55,6 +55,7 @@ var smsReader = (function (smsReader) {
         tranData[tranSmsSpec.attributtes[index]] = extractData;
         tranData.type = tranSmsSpec.type;
         tranData.trackType = tranSmsSpec.trackType;
+        tranData.bank = tranSmsSpec.bank;
      }
      return tranData; 
   };
